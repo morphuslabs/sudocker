@@ -51,7 +51,7 @@ debug() {
 
 [ -f /sudocker-su ] && exec /sudocker-su
 debug "\`\`/sudocker-su'' does not exist, using docker run to create it"
-groups | grep -q " docker " || errxit "not in the docker group, abort."
+groups | grep -q '\bdocker\b' || errxit "not in the docker group, abort."
 root=$(mount | grep " / " | sed -e "s/ .*//")
 debug "root is $root"
 docker images | grep -q "^ubuntu " || docker pull ubuntu
