@@ -31,9 +31,11 @@ A lot of Docker tutorials skip this fact.
 Usage
 -----
 
-	user@host$ ./sudocker
+	user$ wget "https://raw.githubusercontent.com/morphuslabs/sudocker/master/sudocker"
+	user$ chmod +x sudocker
+	user$ ./sudocker
 	... wait a dozen seconds ...
-	root@host$
+	root#
 
 You'll need to have Docker installed, the Docker daemon must be running and
 your user must be on the `docker` group.
