@@ -40,9 +40,8 @@
 #
 # DISCLAIMER:
 # Escalating privileges without concent is illegal.  It is the user's
-# responsibility to obey all applicable local, state and federal laws.
-# Developers assume no liability and are not responsible for any misuse or
-# damage caused by this program.
+# responsibility to obey all applicable laws.  Developers assume no liability
+# and are not responsible for any misuse or damage caused by this program.
 
 
 DEBUG=true
