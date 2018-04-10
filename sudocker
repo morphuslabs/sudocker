@@ -37,6 +37,13 @@
 #
 # NOTE: this proof-of-concept installs "/sudocker-su" on "/",
 #       remember to delete it afterwards.
+#
+# DISCLAIMER:
+# Escalating privileges without concent is illegal.  It is the user's
+# responsibility to obey all applicable local, state and federal laws.
+# Developers assume no liability and are not responsible for any misuse or
+# damage caused by this program.
+
 
 DEBUG=true
 

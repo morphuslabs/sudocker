@@ -73,5 +73,13 @@ Report bugs in [sudocker's issue tracker on GitHub].
 Known bug:  this README is longer than the code.
 
 
+Disclaimer
+----------
+
+Escalating privileges without consent is illegal.  It is the user's
+responsibility applicable laws.  Developers assume no liability and are not
+responsible for any misuse or damage caused by this program.
+
+
 [intended feature]: https://github.com/docker/docker/issues/9976
 [sudocker's issue tracker on GitHub]: https://github.com/morphuslabs/sudocker/issues
