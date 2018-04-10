@@ -3,7 +3,7 @@ sudocker
 
 `sudocker` can be used to become `root` by being on the `docker` group.
 
-Copyright (C) 2018  Morphus Labs.
+Copyright (C) 2018  Morphus Labs.  Released under the GPLv3.
 
 This script leverages the fact that anyone in the `docker` group is `root`
 equivalent:
