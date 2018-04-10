@@ -42,19 +42,19 @@ FAQ
 
 * Is this a bug in Docker?
 
-No.  This is an [intended feature].
+	No.  This is an [intended feature].
 
 
 * Does this mean programs can escape from my Docker containers?
 
-No.  Unless you use the `--privileged` parameter, your docker containers should
-be safe (at least with regards to this feature).
+	No.  Unless you use the `--privileged` parameter, your docker containers
+	should be safe (at least with regards to this feature).
 
 
 * What can I do avoid passwordless privilege escalation using Docker?
 
-Don't add your user to the `docker` group.
-Use `sudo` whenever you call `docker run`.
+	Don't add your user to the `docker` group.
+	Use `sudo` whenever you call `docker run`.
 
 
 [intended feature]: https://github.com/docker/docker/issues/9976
