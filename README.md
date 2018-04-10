@@ -8,6 +8,9 @@ Copyright (C) 2018  Morphus Labs.  Released under the GPLv3.
 This script leverages the fact that anyone in the `docker` group is `root`
 equivalent:
 
+* _"Warning: The docker group grants privileges equivalent to the root user."_
+        -- https://docs.docker.com/install/linux/linux-postinstall/
+
 * _"Anyone added to the docker group is root equivalent"_
         -- https://wiki.archlinux.org/index.php/Docker
 
@@ -18,6 +21,9 @@ equivalent:
 * _"First of all, only trusted users should be allowed to control your Docker
    daemon."_
         -- https://docs.docker.com/engine/security/security/#docker-daemon-attack-surface
+
+* _"Warning: The docker group is equivalent to the root user"_
+        -- https://developer.fedoraproject.org/tools/docker/docker-installation.html
 
 A lot of Docker tutorials skip this fact.
 
