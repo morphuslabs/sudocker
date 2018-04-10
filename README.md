@@ -65,4 +65,13 @@ FAQ
 	Use `sudo` whenever you call `docker run`.
 
 
+Bugs
+----
+
+Report bugs in [sudocker's issue tracker on GitHub].
+
+Known bug:  this README is longer than the code.
+
+
 [intended feature]: https://github.com/docker/docker/issues/9976
+[sudocker's issue tracker on GitHub]: https://github.com/morphuslabs/sudocker/issues
